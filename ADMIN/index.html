@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTEGRA(2)| ADMIN</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTEGRA(2) ADMIN</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="contenedor-login">
+        <div class="encabezado">
+            <h1>INTEGRA(2)</h1>
+            <p>Panel de administración</p>
+        </div>
+        <section class="login">
+            <h2>Bienvenido</h2>
+            <p>Ingresa tus datos para continuar</p>
+            <form id="formulario-login">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" placeholder="Ingresa tu usuario" required>
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" placeholder="Ingresa tu contraseña" required>
+                <button type="submit">Iniciar sesión</button>
+                <p id="mensaje"></p>
+            </form>
+        </section>
+    </main>
+
+<section id="panel-admin" hidden>
+    <header class="encabezado-admin">
+        <div>
+            <h1>INTEGRA(2)</h1>
+            <p>Panel de administración</p>
+        </div>
+        <button id="cerrar-sesion">Cerrar sesión</button>
+    </header>
+    <main class="contenido-admin">
+        <h2>¡Bienvenido, administrador!</h2>
+        <p>¿Qué deseas administrar hoy?</p>
+        <div class="opciones-admin">
+            <button class="opcion-admin" data-seccion="horarios">
+                <span>📅</span>
+                <h3>Horarios</h3>
+                <p>Subir y actualizar horarios de grupos.</p>
+            </button>
+            <button class="opcion-admin">
+                <span>📢</span>
+                <h3>Avisos</h3>
+                <p>Publicar eventos y comunicados.</p>
+            </button>
+            <button class="opcion-admin">
+                <span>📚</span>
+                <h3>Asesorías</h3>
+                <p>Registrar materias y horarios disponibles.</p>
+            </button>
+            <button class="opcion-admin">
+                <span>👥</span>
+                <h3>Directorio</h3>
+                <p>Actualizar información del personal.</p>
+            </button>
+        </div>
+    </main>
+    <section id="admin-horarios" hidden>
+        <button class="volver-menu">← Volver al menú</button>
+        <h2>Administrar horarios</h2>
+        <p>Sube o actualiza los horarios de los grupos.</p>
+        <form id="formulario-horario">
+            <label for="turno-horario">Turno</label>
+            <select id="turno-horario" required>
+                <option value="">Selecciona un turno</option>
+                <option value="matutino">Matutino</option>
+                <option value="vespertino">Vespertino</option>
+            </select>
+            <label for="grupo-horario">Grupo</label>
+            <select id="grupo-horario" required>
+                <option value="">Primero selecciona un turno</option>
+            </select>
+
+            </select>
+            <label for="archivo-horario">Imagen del horario</label>
+            <input type="file" id="archivo-horario"
+                accept="image/*" required>
+            <button type="submit">Guardar horario</button>
+            <button type="button" id="eliminar-horario" hidden>
+            Eliminar horario
+            </button>
+        </form>
+        <p id="mensaje-horario"></p>
+    </section>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>

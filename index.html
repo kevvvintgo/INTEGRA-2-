@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTEGRA(2)</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="inicio">
+        <section id="pantalla-inicio">
+        <header class="encabezado-principal">
+            <h1>¡Bienvenido a INTEGRA(2)!</h1>
+            <p id="parrafo1">¿Qué necesitas consultar hoy?</p>
+        </header>        
+        <section class="contenedor-tarjetas">
+            <button class="tarjeta" data-app="horarios">
+                <span class="icono"><img src="logoh.png" alt="Logo De El Apartado De Horarios"></span>
+                <div class="contenido-tarjeta">
+                    <h2>Horarios</h2>
+                    <p>Consulta tu horario de clase</p>
+                </div>
+            </button>
+            <button class="tarjeta" data-app="asesorias">
+                <span class="icono"><img src="logoa.png" alt="Logo De La Seccion De Asesorias"></span>
+                <div class="contenido-tarjeta">
+                    <h2>Asesorias</h2>
+                    <p>Consulta los horarios de tus asesorias academicas..</p>
+                </div>
+            </button>
+            <button class="tarjeta" data-app="mapa">
+                <span class="icono"><img src="logom.png" alt="Logo De La Seccion De EL Mapa"></span>
+                <div class="contenido-tarjeta">
+                    <h2>Mapa Digital</h2>
+                    <p>Ubica salones y servicios</p>
+                </div>
+            </button>
+            <button class="tarjeta" data-app="avisos">
+                <span class="icono"><img src="logoav.png" alt="Lgo De La Seccion De Avisos Escolares"></span>
+                <div class="contenido-tarjeta">
+                    <h2>Avisos Escolares</h2>
+                    <p>Consulta eventos y comunicados</p>
+                </div>
+            </button>
+            <button class="tarjeta" data-app="personal">
+                <span class="icono"><img src="logop.png" alt="Logo de la Seccion Del Personal"></span>
+                <div class="contenido-tarjeta">
+                    <h2>Directorio del Personal</h2>
+                    <p>Encuentra docentes y departamentos</p>
+                </div>
+            </button>
+        </section>
+        </section>
+        <section id="pantalla-app" hidden>
+            <button id="volver-inicio">← Inicio</button>
+            <div id="encabezado-app">
+                <h2 id="titulo-app"></h2>
+                <p id="descripcion-app"></p>
+            </div>
+            <div id="seleccion-turno" hidden>
+                <h3>¿En qué turno asistes?</h3>
+                <div class="botones-turnos">
+                    <button class="boton-turno" data-turno="matutino">
+                        <img src="sun.png" alt="" class="icono-turno">
+                        <span>Matutino</span>
+                            <small>Consulta los grupos del turno matutino</small>
+                    </button>
+                    <button class="boton-turno" data-turno="vespertino">
+                        <img src="moon.png" alt="" class="icono-turno">
+                        <span>Vespertino</span>
+                        <small>Consulta los grupos del turno vespertino</small>
+                    </button>
+                </div>
+            </div>
+            <div id="seleccion-grupo" hidden>
+                <button id="volver-turnos" class="boton-volver">
+                ← Volver a los turnos
+                </button>
+                <div id="encabezado-turno">
+                    <h3 id="titulo-turno"></h3>
+                    <p>Selecciona el grupo cuyo horario  deseas consultar</p>
+                </div>
+                <div id="lista-grupos" class="lista-grupos"></div>
+            </div>
+            <div  id="vista-horario" hidden> 
+                <button id="volver-grupos" class="boton-volver">
+                    ← Volver a los grupos
+                </button>                       
+                <div class="encabezado-horario">
+                    <img src="personas.png" alt="" class="icono-personas">
+                    <div>
+                        <h3 id="titulo-horario"></h3>
+                        <p>Consulta las clases de tu grupo</p>
+                    </div>
+                </div>
+                <img  id="imagen-horario" src="" alt="Horario del grupo ">
+                <p id="mensaje-horario">Aqui aparecera la imagen del horario de este grupo</p>
+            </div>
+            <!--ASESORIAS PARTE-->
+            <div id="seccion-asesorias" hidden>
+                <div id="encabezado-asesorias">
+                    <h3>Asesorias Academicas</h3>
+                    <p>Selecciona el area que deseas consultar.</p>
+                </div>
+                <div id="lista-areas" class="lista-areas"></div>
+                <div id="seccion-asignaturas" hidden>
+                    <button id="volver-areas">← Volver a las áreas</button>
+                    <div class="encabezado-asesoria">
+                        <h3 id="titulo-area"></h3>
+                        <p>Selecciona la asignatura que deseas consultar.</p>
+                    </div>
+                    <div id="lista-asignaturas" class="lista-asignaturas"></div>
+                </div>
+                <div id="seccion-docentes" hidden>
+                    <button id="volver-asignaturas">← Volver a las Asignaturas</button>
+                    <div class="encabezado-asesoria">
+                        <h3 id="titulo-asignatura"></h3>
+                        <p>Docentes que imparten esta Asignatura:</p>
+                    </div>
+                    <div id="lista-docentes"></div>
+                    <div id="detalle-horario" hidden>
+                        <button id="volver-docentes">← Volver a docentes</button>
+                        <h3 id="titulo-horario-asesoria"></h3>
+                        <div id="contenido-horario"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <!--MAPAAAAA SETSION-->
+            <div id="seccion-mapa" hidden>
+                <div class="encabezado-mapa">
+                    <h3>Mapa Digital</h3>
+                    <p>Explora las instalaciones del CETis 87</p>
+                </div>
+
+                <div class="contenedor-mapa">
+                    <div class="plano-mapa">
+                        <button class="lugar-mapa edificio" data-lugar="Control Escolar">
+                            <span class="icono-edificio">1</span>
+                            <span>Control Escolar</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Servicios Docentes">
+                            <span class="icono-edificio">2</span>
+                            <span>Servicios Docentes</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Aulas">
+                            <span class="icono-edificio">3</span>
+                            <span>Aulas 1–32</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Laboratorios">
+                            <span class="icono-edificio">4</span>
+                            <span>Laboratorios</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Talleres">
+                            <span class="icono-edificio">5</span>
+                            <span>Talleres de Mantenimiento</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Biblioteca">
+                            <span class="icono-edificio">6</span>
+                            <span>Biblioteca</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Dirección">
+                            <span class="icono-edificio">7</span>
+                            <span>Dirección</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Subdirección">
+                            <span class="icono-edificio">8</span>
+                            <span>Subdirección</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Cafetería">
+                            <span class="icono-edificio">9</span>
+                            <span>Cafetería</span>
+                        </button>
+
+                        <button class="lugar-mapa edificio" data-lugar="Otros espacios">
+                            <span class="icono-edificio">10</span>
+                            <span>Otros espacios</span>
+                        </button>
+                    </div>
+
+                    <div id="informacion-lugar">
+                        <h4>¡Explora el plantel!</h4>
+                        <p>Selecciona un edificio para consultar los espacios que contiene.</p>
+                    </div>
+                </div>
+            </div>
+            <!--avisitoslindos-->
+            <div id="seccion-avisos" hidden>
+                <div class="encabezado-avisos">
+                    <h3>Avisos Escolares</h3>
+                    <p>
+                        Mantente informado con lo que pasa en el CETis 87.
+                    </p>
+                </div>
+                <div class="categorias-avisos">
+                    <button class="filtro-aviso activo"
+                            data-categoria="todos">
+                        Todos
+                    </button>
+                    <button class="filtro-aviso"
+                            data-categoria="eventos">
+                        Eventos
+                    </button>
+                    <button class="filtro-aviso"
+                            data-categoria="comunicados">
+                        Comunicados
+                    </button>
+                    <button class="filtro-aviso"
+                            data-categoria="fechas">
+                        Fechas Importantes
+                    </button>
+                </div>
+                <!--listilla de avisillos-->
+                <div id="lista-avisos">
+
+                    <article class="tarjeta-aviso"
+                            data-categoria="eventos">
+                            <span class="etiqueta-aviso evento">
+                                Evento
+                            </span>
+                            <h4>Actividades Escolares</h4>
+                            <p>
+                                Consulta aqui a infromacion de las proximas activdades del plantel.
+                            </p>
+                            <small>Fecha por confirmar</small>
+                    </article>
+                    <article class="tarjeta-aviso"
+                            data-categoria="comunicados">
+                            <span class="etiqueta-aviso comunicado">
+                                Comunicado
+                            </span>
+                            <h4>Informacion para estudiantes</h4>
+                            <p>
+                                En este espacio se publicaran los comunicados importantes de la escuela
+                            </p>
+                            <small>Fecha por confirmar</small>
+                    </article>
+                    <article class="tarjeta-aviso"
+                            data-categoria="fechas">
+                            <span class="etiqueta-aviso fecha">
+                                Fecha Importante
+                            </span>
+                            <h4>Calendario Escolar</h4>
+                            <p>
+                                Consulta fechas de examenes, actividades y otros acontecimientos
+                            </p>
+                            <small>Fecha por confirmar</small>
+                    </article>
+                </div>
+                <div id="detalle-aviso" hidden>
+                    <button id="volver-avisos" type="button">
+                        ← Volver a los avisos
+                    </button>
+                    <div class="contenido-detalle-aviso">
+                        <span id="detalle-categoria" class="etiqueta-aviso"></span>
+                        <h3 id="detalle-titulo"></h3>
+                        <p id="detalle-descripcion"></p>
+                        <div class="datos-detalle-aviso">
+                            <p>
+                                <strong>Fecha:</strong>
+                                <span id="detalle-fecha">Por confirmar</span>
+                            </p>
+                            <p>
+                                <strong>Lugar:</strong>
+                                <span id="detalle-lugar">Por confirmar</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p id="sin-avisos" hidden>
+                    No hay avisos en esta categoria
+                </p>
+            </div>
+        <!--DOCENTEEEEEEES-->
+        <div id="seccion-personal" hidden>
+            <div class="encabezado-personal">
+                <h3>Directorio Del Personal</h3>
+                <p>Encuentra al personal de tu plantel</p>
+            </div>
+            <div class="buscador-personal">
+                <span>🔎</span>
+                <input 
+                    type="text"
+                    id="buscar-personal"
+                    placeholder="Buscar por nombre o apellido...">
+            </div>
+            <div class="filtros-personal">
+                <button class="filtro-personal activo" data-area="todos">
+                    Todo el personal
+                </button>
+                <button class="filtro-personal" data-area="docentes">
+                    Docentes
+                </button>
+                <button class="filtro-personal" data-area="administrativos">
+                    Administrativos
+                </button>
+                <button class="filtro-personal" data-area="directivos">
+                    Directivos
+                </button>
+            </div>
+            <div id="lista-personal">
+            </div>
+            <p id="sin-personal" hidden>
+                No se encontro personal con esos datos...
+            </p>
+            <div id="detalle-personal" hidden>
+                <button id="volver-personal" type="button">
+                    ← Volver al directorio
+                </button>
+                <div class="contenido-detalle-personal">
+                    <div class="icono-personal">👤</div>
+                    <h3 id="nombre-detalle-personal"></h3>
+                    <p id="cargo-detalle-personal"></p>
+                    <div class="datos-personal">
+                        <p>
+                            <strong>Área:</strong>
+                            <span id="area-detalle-personal"></span>
+                        </p>
+                        <p>
+                            <strong>Ubicacón:</strong>
+                            <span id="ubicacion-detalle-personal"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
